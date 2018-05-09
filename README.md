@@ -7,6 +7,8 @@
 
 IPython magic command to format python code in cell using [black](https://github.com/ambv/black).
 
+![Demo](https://i.imgur.com/9W8NLUu.gif)
+
 ## What is the magic command?
 
 ```python
