@@ -49,7 +49,7 @@ python blackcellmagic/setup.py install
 
 ## Extras
 
-[Tobin Jones](https://github.com/tobinjones) has been kind enough to develop a NPM package over [blackcellmagic](https://github.com/csurfer/blackcellmagic/edit/master/README.md) to format all cells at once which can be found [here](https://github.com/tobinjones/jupyterlab_formatblack).
+Tobin Jones has been kind enough to develop a NPM package over blackcellmagic to format all cells at once which can be found [here](https://github.com/tobinjones/jupyterlab_formatblack).
 
 ## Contributing
 
