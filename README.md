@@ -47,6 +47,10 @@ python blackcellmagic/setup.py install
 %%black --line_length 79
 ```
 
+## Extras
+
+[Tobin Jones](https://github.com/tobinjones) has been kind enough to develop a NPM package over [blackcellmagic](https://github.com/csurfer/blackcellmagic/edit/master/README.md) to format all cells at once which can be found [here](https://github.com/tobinjones/jupyterlab_formatblack).
+
 ## Contributing
 
 ### Bug Reports and Feature Requests
