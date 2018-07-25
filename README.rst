@@ -49,6 +49,12 @@ Usage
     %%black -l 79
     %%black --line_length 79
 
+Extras
+------
+
+Tobin Jones has been kind enough to develop a NPM package over blackcellmagic to format all cells at once which can be found `here`_.
+
+
 Contributing
 ------------
 
@@ -70,7 +76,6 @@ If you found the utility helpful you can buy me a cup of coffee using
 |Donate|
 
 
-
 .. _black: https://github.com/ambv/black
 
 .. _issue tracker: https://github.com/csurfer/blackcellmagic/issues
@@ -89,3 +94,5 @@ If you found the utility helpful you can buy me a cup of coffee using
 
 .. |pyv| image:: https://img.shields.io/pypi/pyversions/blackcellmagic.svg
    :target: https://pypi.python.org/pypi/blackcellmagic
+
+.. _here: https://github.com/tobinjones/jupyterlab_formatblack
