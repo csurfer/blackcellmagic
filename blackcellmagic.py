@@ -38,7 +38,7 @@ class FormattingMagic(Magics):
         line_length = args.line_length
         if cell:
             self.shell.set_next_input(
-                format_str(src_contents=cell, line_length=line_length),
+                format_str(src_contents=cell, line_length=line_length)[:-1],
                 replace=True,
             )
 
