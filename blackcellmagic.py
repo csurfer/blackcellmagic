@@ -39,7 +39,7 @@ class FormattingMagic(Magics):
         if cell:
             # Comment magics
             cell = re.sub(r"^%", r"##!%", cell)
-            cell = re.sub(r"\n\s*%(?=\w+)", "\n##!%", cell)
+            cell = re.sub(r"\n\s*%", "\n##!%", cell)
             try:
                 formated = format_str(src_contents=cell, line_length=line_length)
                 if formated and formated[-1] == "\n":
@@ -49,8 +49,7 @@ class FormattingMagic(Magics):
                 print(e)
             finally:
                 # Uncomment magics
-                formated = re.sub(r"^##!%", r"%", formated)
-                formated = re.sub(r"##!%(?=\w+)", "%", formated)
+                formated = re.sub(r"##!%", "%", formated)
                 # No matter success or not, something will always be put back
                 self.shell.set_next_input(formated, replace=True)
 
