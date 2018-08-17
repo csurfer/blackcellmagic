@@ -21,7 +21,7 @@ To have it formatted to a particular line length.
 from black import format_str
 from IPython.core import magic_arguments
 from IPython.core.magic import Magics, cell_magic, magics_class
-
+import re
 
 @magics_class
 class FormattingMagic(Magics):
@@ -37,10 +37,22 @@ class FormattingMagic(Magics):
         args = magic_arguments.parse_argstring(self.black, line)
         line_length = args.line_length
         if cell:
-            formated = format_str(src_contents=cell, line_length=line_length)
-            if formated and formated[-1] == "\n":
+            # Comment magics
+            cell = re.sub(r"^%", r"##!%", cell)
+            cell = re.sub(r"\n\s*%(?=\w+)", "\n##!%", cell)
+            try:
+                formated = format_str(src_contents=cell, line_length=line_length)
+                if formated and formated[-1] == "\n":
                     formated = formated[:-1]
-            self.shell.set_next_input(formated, replace=True)
+            except ValueError as e:
+                formated = cell
+                print(e)
+            finally:
+                # Uncomment magics
+                formated = re.sub(r"^##!%", r"%", formated)
+                formated = re.sub(r"##!%(?=\w+)", "%", formated)
+                # No matter success or not, something will always be put back
+                self.shell.set_next_input(formated, replace=True)
 
 
 def load_ipython_extension(ipython):
