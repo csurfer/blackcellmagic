@@ -37,7 +37,13 @@ class FormattingMagic(Magics):
         args = magic_arguments.parse_argstring(self.black, line)
         line_length = args.line_length
         if cell:
-            formated = format_str(src_contents=cell, line_length=line_length)
+            try:
+                formated = format_str(src_contents=cell, line_length=line_length)
+            except TypeError:
+                from black import FileMode
+                mode = FileMode()
+                mode.line_length = line_length
+                formated = format_str(src_contents=cell, mode=mode)
             if formated and formated[-1] == "\n":
                     formated = formated[:-1]
             self.shell.set_next_input(formated, replace=True)
