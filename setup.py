@@ -13,7 +13,7 @@ setup(
     # Name of the module
     name="blackcellmagic",
     # Details
-    version="0.0.1",
+    version="0.0.2",
     description="IPython wrapper to format cell using black.",
     long_description=long_description,
     # The project's main homepage.
