@@ -37,10 +37,15 @@ class FormattingMagic(Magics):
         args = magic_arguments.parse_argstring(self.black, line)
         line_length = args.line_length
         if cell:
-            formated = format_str(src_contents=cell, line_length=line_length)
-            if formated and formated[-1] == "\n":
-                    formated = formated[:-1]
-            self.shell.set_next_input(formated, replace=True)
+            try:
+                from black import FileMode
+                mode = FileMode(line_length=line_length)
+                formatted = format_str(src_contents=cell, mode=mode)
+            except TypeError:
+                formatted = format_str(src_contents=cell, line_length=line_length)
+            if formatted and formatted[-1] == "\n":
+                    formatted = formatted[:-1]
+            self.shell.set_next_input(formatted, replace=True)
 
 
 def load_ipython_extension(ipython):
