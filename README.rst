@@ -1,7 +1,7 @@
 blackcellmagic
 ==============
 
-|pypiv| |pyv| |Licence| |Thanks|
+|pypiv| |conda| |pyv| |Licence| |Thanks|
 
 IPython magic command to format python code in cell using `black`_.
 
@@ -21,6 +21,13 @@ Using pip
 .. code:: bash
 
     pip install blackcellmagic
+    
+Using conda
+~~~~~~~~~
+
+.. code:: bash
+
+    conda install -c conda-forge blackcellmagic    
 
 Directly from the repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,6 +98,9 @@ If you found the utility helpful you can buy me a cup of coffee using
 
 .. |pypiv| image:: https://img.shields.io/pypi/v/py-heat-magic.svg
    :target: https://pypi.python.org/pypi/blackcellmagic
+   
+.. |conda| image:: https://anaconda.org/conda-forge/blackcellmagic/badges/version.svg
+   :target: https://pypi.python.org/pypi/blackcellmagic   
 
 .. |pyv| image:: https://img.shields.io/pypi/pyversions/blackcellmagic.svg
    :target: https://pypi.python.org/pypi/blackcellmagic
