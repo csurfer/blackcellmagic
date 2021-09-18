@@ -18,33 +18,36 @@ To have it formatted to a particular line length.
 """
 
 
-from black import format_str
+from black import FileMode, format_str
 from IPython.core import magic_arguments
 from IPython.core.magic import Magics, cell_magic, magics_class
 
 
 @magics_class
 class FormattingMagic(Magics):
-    """IPython wrapper to format cell using `https://github.com/ambv/black`."""
+    """IPython wrapper to format cell using `https://github.com/psf/black`."""
 
     @magic_arguments.magic_arguments()
     @magic_arguments.argument(
-        "-l", "--line_length", type=int, default=88, help="Line length"
+        '-S', '--skip-string-normalization', action='store_true', default=False, help='Skip string normalization.'
     )
+    @magic_arguments.argument('-l', '--line-length', type=int, default=88, help='Line length')
     @cell_magic
     def black(self, line, cell):
         """Magic command to format the IPython cell."""
         args = magic_arguments.parse_argstring(self.black, line)
         line_length = args.line_length
+        skip_string_normalization = args.skip_string_normalization
         if cell:
             try:
-                from black import FileMode
-                mode = FileMode(line_length=line_length)
+                mode = FileMode(line_length=line_length, string_normalization=not skip_string_normalization)
                 formatted = format_str(src_contents=cell, mode=mode)
             except TypeError:
-                formatted = format_str(src_contents=cell, line_length=line_length)
-            if formatted and formatted[-1] == "\n":
-                    formatted = formatted[:-1]
+                formatted = format_str(
+                    src_contents=cell, line_length=line_length, string_normalization=not skip_string_normalization
+                )
+            if formatted and formatted[-1] == '\n':
+                formatted = formatted[:-1]
             self.shell.set_next_input(formatted, replace=True)
 
 
