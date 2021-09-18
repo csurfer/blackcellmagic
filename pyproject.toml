@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "blackcellmagic"
+version = "0.0.3"
+description = "IPython magic command to format python code in cell using black."
+authors = ["csurfer <sharma.vishwas88@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/csurfer/blackcellmagic"
+keywords = ["automation", "formatter", "yapf", "autopep8", "pyfmt", "gofmt", "rustfmt", "IPython", "black", "jupyter"]
+classifiers=[
+    'Intended Audience :: Developers',
+    'Environment :: Console',
+    'License :: OSI Approved :: MIT License',
+    'Development Status :: 3 - Alpha',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3 :: Only',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Software Development :: Quality Assurance',
+]
+include = ['CHANGELOG.rst']
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+black = "^21.9b0"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -3,7 +3,7 @@
 [![pypiv](https://img.shields.io/pypi/v/blackcellmagic.svg)](https://pypi.python.org/pypi/blackcellmagic)
 [![pyv](https://img.shields.io/pypi/pyversions/blackcellmagic.svg)](https://pypi.python.org/pypi/blackcellmagic)
 [![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/csurfer/blackcellmagic/master/LICENSE)
-[![Thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/csurfer)
+[![Downloads](https://pepy.tech/badge/blackcellmagic)](https://pepy.tech/project/blackcellmagic)
 
 IPython magic command to format python code in cell using [black](https://github.com/ambv/black).
 
@@ -39,12 +39,16 @@ python blackcellmagic/setup.py install
 ## Usage
 
 ```python
-# To have it formatted to black default length 88.
+# To have it formatted to black default length 88 with string normalization.
 %%black
 
 # To have it formatted to a particular line length.
 %%black -l 79
-%%black --line_length 79
+%%black --line-length 79
+
+# To skip string normalization.
+%%black -S
+%%black --skip-string-normalization
 ```
 
 ## Extras
