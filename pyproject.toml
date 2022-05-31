@@ -26,7 +26,7 @@ include = ['CHANGELOG.rst']
 
 [tool.poetry.dependencies]
 python = "^3.6.2"
-black = "^21.9b0"
+black = ">=21.9b0"
 jupyter = "^1.0.0"
 
 [build-system]
